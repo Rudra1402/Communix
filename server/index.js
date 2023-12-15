@@ -8,6 +8,7 @@ import routes from './routes/route.js'
 dotenv.config()
 const app = express()
 const uri = process.env.MONGO_URI
+const PORT = process.env.PORT || 8000;
 
 app.use(cors())
 app.use(express.json())
@@ -26,4 +27,4 @@ pool.connect()
 
 app.use('/api', routes)
 
-app.listen(8000, () => console.log("Server running on PORT:8000"))
+app.listen(PORT, () => console.log("Server running on PORT:" + PORT));
